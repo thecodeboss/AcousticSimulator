@@ -87,7 +87,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x86;$(SolutionDir)fftw;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x86;$(SolutionDir)fftw_lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;libfftw3-3.lib;</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x64;$(SolutionDir)fftw;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x64;$(SolutionDir)fftw_lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;libfftw3-3.lib;</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -119,7 +119,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x86;$(SolutionDir)fftw;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x86;$(SolutionDir)fftw_lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;libfftw3-3.lib;</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -139,17 +139,19 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x64;$(SolutionDir)fftw;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.4\lib\x64;$(SolutionDir)fftw_lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;libfftw3-3.lib;</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Boundary.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Partition.cpp" />
     <ClCompile Include="Simulation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Boundary.h" />
     <ClInclude Include="Partition.h" />
     <ClInclude Include="Simulation.h" />
   </ItemGroup>

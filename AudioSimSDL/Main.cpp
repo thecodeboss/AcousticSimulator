@@ -5,28 +5,29 @@
 #include "Simulation.h"
 #include "Partition.h"
 
-int main(int argc, char ** argv)
-{
+int main(int argc, char ** argv) {
 	bool quit = false;
 
 	// Create the scene out of partitions.
 	// Later, we will read this data from the rectangular decomposition step.
 	std::vector<std::shared_ptr<Partition>> partitions;
 	partitions.push_back(std::make_shared<Partition>(0, 0, 150, 150));
-	partitions.push_back(std::make_shared<Partition>(150, 0, 100, 100));
-	//  _______________
-	// |               |
+	partitions.push_back(std::make_shared<Partition>(150, 20, 80, 80));
+	partitions.push_back(std::make_shared<Partition>(90, 150, 40, 40));
+	//  _________
+	// |         |_____
 	// |               |
 	// |         -------
 	// |         |
-	// |_________|
+	// |_____   _|
+	//       |_|
 
 	// Create the simulation out of our partitions
 	auto simulation = std::make_shared<Simulation>(partitions);
 	
 	// Determine the size of the window based on the size of the simulation
-	int sizeX = 250;
-	int sizeY = 150;
+	int sizeX = simulation->sizeX;
+	int sizeY = simulation->sizeY;
 
 	// Init SDL stuff with a window of our needed size
 	SDL_Event event;

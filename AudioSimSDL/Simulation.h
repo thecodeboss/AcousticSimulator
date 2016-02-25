@@ -7,9 +7,11 @@
 #include <SDL.h>
 
 class Partition;
+class Boundary;
 
 class Simulation {
 	std::vector<std::shared_ptr<Partition>> partitions;
+	std::vector<std::shared_ptr<Boundary>> boundaries;
 	std::thread worker;
 	std::condition_variable cv;
 	std::mutex cv_m;
@@ -26,9 +28,10 @@ class Simulation {
 
 	void main();
 public:
+	int sizeX, sizeY, sizeZ;
+
 	Simulation(std::vector<std::shared_ptr<Partition>>& p);
 	~Simulation();
-	
 	void start();
 	bool isReady();
 	void stop();
