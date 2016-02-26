@@ -13,7 +13,7 @@ int main(int argc, char ** argv) {
 	std::vector<std::shared_ptr<Partition>> partitions;
 	partitions.push_back(std::make_shared<Partition>(0, 0, 150, 150));
 	partitions.push_back(std::make_shared<Partition>(150, 20, 80, 80));
-	partitions.push_back(std::make_shared<Partition>(90, 150, 40, 40));
+	partitions.push_back(std::make_shared<Partition>(90, 150, 40, 60));
 	//  _________
 	// |         |_____
 	// |               |

@@ -15,15 +15,15 @@ Partition::Partition(int gx, int gy, int w, int h, int d) : globalX(gx), globalY
 	ang2 = (double*)malloc(width*height*sizeof(double));
 
 	// Create a plan for doing F = iDCT(Ft)
-	force_plan = fftw_plan_r2r_2d(width, height, force_t, force,
+	force_plan = fftw_plan_r2r_2d(height, width, force_t, force,
 		FFTW_REDFT01, FFTW_REDFT01, FFTW_MEASURE);
 
 	// Create a plan for doing Ft = DCT(F)
-	force_t_plan = fftw_plan_r2r_2d(width, height, force, force_t,
+	force_t_plan = fftw_plan_r2r_2d(height, width, force, force_t,
 		FFTW_REDFT10, FFTW_REDFT10, FFTW_MEASURE);
 
 	// Create a plan for doing pressure = iDCT(modes)
-	modes_to_pressure_plan = fftw_plan_r2r_2d(width, height, modes, pressure,
+	modes_to_pressure_plan = fftw_plan_r2r_2d(height, width, modes, pressure,
 		FFTW_REDFT01, FFTW_REDFT01, FFTW_MEASURE);
 
 	memset((void*)prev_modes, 0, width*height*sizeof(double));
