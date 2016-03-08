@@ -13,13 +13,21 @@ class Boundary {
 	int zStart;
 	int zEnd;
 
+	enum BoundaryType {
+		X_BOUNDARY,
+		Y_BOUNDARY,
+		Z_BOUNDARY
+	} type;
+
 public:
 
-	Boundary(std::shared_ptr<Partition> A, std::shared_ptr<Partition> B,
+	Boundary(BoundaryType bType, std::shared_ptr<Partition> A, std::shared_ptr<Partition> B,
 		int xs, int xe, int ys, int ye, int zs = 0, int ze = 0);
 
 	static std::shared_ptr<Boundary> findBoundary(
 		std::shared_ptr<Partition> partition,
 		std::shared_ptr<Partition> other
 	);
+
+	void computeForcingTerms();
 };

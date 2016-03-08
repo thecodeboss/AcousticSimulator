@@ -146,12 +146,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Boundary.cpp" />
+    <ClCompile Include="DCTVolume.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Partition.cpp" />
     <ClCompile Include="Simulation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boundary.h" />
+    <ClInclude Include="DCTVolume.h" />
     <ClInclude Include="Partition.h" />
     <ClInclude Include="Simulation.h" />
   </ItemGroup>

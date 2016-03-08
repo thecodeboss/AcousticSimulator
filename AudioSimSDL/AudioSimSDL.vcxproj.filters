@@ -27,6 +27,9 @@
     <ClCompile Include="Boundary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DCTVolume.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Partition.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Boundary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DCTVolume.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

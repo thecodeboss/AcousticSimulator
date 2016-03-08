@@ -8,19 +8,15 @@
 int main(int argc, char ** argv) {
 	bool quit = false;
 
-	// Create the scene out of partitions.
+	// Create the scene out of partitions. This is just an arbitrary complex scene.
 	// Later, we will read this data from the rectangular decomposition step.
 	std::vector<std::shared_ptr<Partition>> partitions;
-	partitions.push_back(std::make_shared<Partition>(0, 0, 150, 150));
-	partitions.push_back(std::make_shared<Partition>(150, 20, 80, 80));
-	partitions.push_back(std::make_shared<Partition>(90, 150, 40, 60));
-	//  _________
-	// |         |_____
-	// |               |
-	// |         -------
-	// |         |
-	// |_____   _|
-	//       |_|
+	partitions.push_back(std::make_shared<Partition>(40, 0, 250, 250));
+	partitions.push_back(std::make_shared<Partition>(290, 0, 160, 160));
+	partitions.push_back(std::make_shared<Partition>(0, 90, 40, 60));
+	partitions.push_back(std::make_shared<Partition>(100, 250, 100, 60));
+	partitions.push_back(std::make_shared<Partition>(390, 160, 60, 150));
+	partitions.push_back(std::make_shared<Partition>(220, 280, 170, 30));
 
 	// Create the simulation out of our partitions
 	auto simulation = std::make_shared<Simulation>(partitions);

@@ -55,6 +55,11 @@ void Simulation::main() {
 		for (auto partition : partitions) {
 			partition->step(t);
 		}
+
+		for (auto boundary : boundaries) {
+			boundary->computeForcingTerms();
+		}
+
 		t += 0.5;
 		{
 			std::lock_guard<std::mutex> lock(pixels_lock);
@@ -72,7 +77,7 @@ void Simulation::main() {
 				int gYOffset = partition->globalY;
 				for (int i = 0; i < height; i++) {
 					for (int j = 0; j < width; j++) {
-						double pressure = pressureField[i*width + j] / (width*height);
+						double pressure = pressureField[i*width + j];
 						double norm = 0.5*std::max(-1.0, std::min(1.0, pressure)) + 0.5;
 						int r = static_cast<int>((norm <= 0.5) ? round(255.0*(1.0 - 2.0*norm)) : 0);
 						int g = static_cast<int>((norm <= 0.5) ? round(255.0*2.0*norm) : round(255.0*2.0*(1.0 - norm)));
