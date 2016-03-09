@@ -64,7 +64,6 @@ void Partition::step(double t) {
 	if (width == 250) {
 		force.setValue(220, 80, (t <= 5.0) ? 15.0*sin(M_PI*t / 5.0) : 0.0);
 	}
-	// Update forcing term for boundaries @TODO
 }
 
 double* Partition::getPressureField() {

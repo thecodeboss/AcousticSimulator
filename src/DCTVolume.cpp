@@ -31,11 +31,7 @@ void DCTVolume::executeDCT() {
 	// step, or values will be wacky.
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
-			//if (i == j == 0) {
-			//	modes[0] /= 4.0 * sqrt(width*height);
-			//} else {
-				modes[i*width + j] /= 2.0 * sqrt(2.0*width*height);
-			//}
+			modes[i*width + j] /= 2.0 * sqrt(2.0*width*height);
 		}
 	}
 }
@@ -45,9 +41,6 @@ void DCTVolume::executeIDCT() {
 	// Normalize
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
-			//if (i == j == 0) {
-			//	values[0] *= sqrt(2.0);
-			//}
 			values[i*width + j] /= sqrt(2.0*width*height);
 		}
 	}

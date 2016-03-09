@@ -56,12 +56,12 @@ int main(int argc, char ** argv) {
 		// Check simulation thread to see if a new frame is available
 		if (simulation->isReady()) {
 			auto pixels = simulation->getPixels();
-			SDL_UpdateTexture(texture, NULL, pixels->data(), sizeX * sizeof(Uint32));
+			SDL_UpdateTexture(texture, nullptr, pixels->data(), sizeX * sizeof(Uint32));
 		}
 
 		// Render the surface
 		SDL_RenderClear(renderer);
-		SDL_RenderCopy(renderer, texture, NULL, NULL);
+		SDL_RenderCopy(renderer, texture, nullptr, nullptr);
 		SDL_RenderPresent(renderer);
 	}
 
