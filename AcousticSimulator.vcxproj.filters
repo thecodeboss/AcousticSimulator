@@ -16,6 +16,12 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="src\DCTPartition.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PMLPartition.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Boundary.h">
@@ -28,6 +34,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="src\Simulation.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DCTPartition.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PMLPartition.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

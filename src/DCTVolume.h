@@ -20,4 +20,5 @@ public:
 	void setMode(int x, int y, double m);
 
 	friend class Partition;
+	friend class DCTPartition;
 };

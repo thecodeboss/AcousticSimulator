@@ -73,16 +73,16 @@ void Boundary::computeForcingTerms() {
 
 				int c_idx = 0;
 				for (int k = lX - 3; k < left->width; k++, c_idx++) { // Sum terms from left side of boundary
-					sip += coefs[j + 3][c_idx] * left->pressure.getValue(k, lY) / 180.0;
+					sip += coefs[j + 3][c_idx] * left->getPressure(k, lY) / 180.0;
 				}
 				for (int k = 0; c_idx < 7; k++, c_idx++) { // Sum terms from right side of boundary
-					sip += coefs[j + 3][c_idx] * right->pressure.getValue(k, rY) / 180.0;
+					sip += coefs[j + 3][c_idx] * right->getPressure(k, rY) / 180.0;
 				}
 				if (j < 0) {
 					// F = c^2 * sip;
-					left->force.setValue(lX, lY, (left->speedOfSound)*(left->speedOfSound)*sip);
+					left->setForce(lX, lY, (left->speedOfSound)*(left->speedOfSound)*sip);
 				} else {
-					right->force.setValue(rX, rY, (right->speedOfSound)*(right->speedOfSound)*sip);
+					right->setForce(rX, rY, (right->speedOfSound)*(right->speedOfSound)*sip);
 				}
 			}
 		}
@@ -109,16 +109,16 @@ void Boundary::computeForcingTerms() {
 
 				int c_idx = 0;
 				for (int k = tY - 3; k < top->height; k++, c_idx++) { // Sum terms from left side of boundary
-					sip += coefs[j + 3][c_idx] * top->pressure.getValue(tX, k) / 180.0;
+					sip += coefs[j + 3][c_idx] * top->getPressure(tX, k) / 180.0;
 				}
 				for (int k = 0; c_idx < 7; k++, c_idx++) { // Sum terms from right side of boundary
-					sip += coefs[j + 3][c_idx] * bottom->pressure.getValue(bX, k) / 180.0;
+					sip += coefs[j + 3][c_idx] * bottom->getPressure(bX, k) / 180.0;
 				}
 				if (j < 0) {
 					// F = c^2 * sip;
-					top->force.setValue(tX, tY, (top->speedOfSound)*(top->speedOfSound)*sip);
+					top->setForce(tX, tY, (top->speedOfSound)*(top->speedOfSound)*sip);
 				} else {
-					bottom->force.setValue(bX, bY, (bottom->speedOfSound)*(bottom->speedOfSound)*sip);
+					bottom->setForce(bX, bY, (bottom->speedOfSound)*(bottom->speedOfSound)*sip);
 				}
 			}
 		}
