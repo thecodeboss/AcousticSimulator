@@ -6,6 +6,11 @@ class Partition;
 class Boundary {
 	std::shared_ptr<Partition> a;
 	std::shared_ptr<Partition> b;
+
+	double absorption{ 0.0 };
+
+public:
+
 	int xStart;
 	int xEnd;
 	int yStart;
@@ -19,9 +24,7 @@ class Boundary {
 		Z_BOUNDARY
 	} type;
 
-public:
-
-	Boundary(BoundaryType bType, std::shared_ptr<Partition> A, std::shared_ptr<Partition> B,
+	Boundary(BoundaryType bType, double absorp, std::shared_ptr<Partition> A, std::shared_ptr<Partition> B,
 		int xs, int xe, int ys, int ye, int zs = 0, int ze = 0);
 
 	static std::shared_ptr<Boundary> findBoundary(

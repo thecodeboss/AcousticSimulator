@@ -22,6 +22,9 @@
     <ClCompile Include="src\PMLPartition.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="src\FDTDPartition.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Boundary.h">
@@ -40,6 +43,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="src\PMLPartition.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FDTDPartition.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

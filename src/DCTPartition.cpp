@@ -55,8 +55,8 @@ void DCTPartition::step(double t) {
 	// P = iDCT2(M)
 	pressure.executeIDCT();
 	// Update forcing term for sources
-	if (width == 250) {
-		force.setValue(220, 80, (t <= 5.0) ? 15.0*sin(M_PI*t / 5.0) : 0.0);
+	if (width == 160) {
+		force.setValue(80, 80, exp(-0.5*(t - 8.0)*(t - 8.0)) / sqrt(2 * M_PI));
 	}
 }
 

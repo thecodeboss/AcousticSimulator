@@ -156,6 +156,7 @@
     <ClCompile Include="src\Boundary.cpp" />
     <ClCompile Include="src\DCTPartition.cpp" />
     <ClCompile Include="src\DCTVolume.cpp" />
+    <ClCompile Include="src\FDTDPartition.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Partition.cpp" />
     <ClCompile Include="src\PMLPartition.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\Boundary.h" />
     <ClInclude Include="src\DCTPartition.h" />
     <ClInclude Include="src\DCTVolume.h" />
+    <ClInclude Include="src\FDTDPartition.h" />
     <ClInclude Include="src\Partition.h" />
     <ClInclude Include="src\PMLPartition.h" />
     <ClInclude Include="src\Simulation.h" />

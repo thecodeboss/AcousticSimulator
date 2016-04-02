@@ -4,6 +4,8 @@
 #include <memory>
 #include "Simulation.h"
 #include "DCTPartition.h"
+#include "PMLPartition.h"
+#include "FDTDPartition.h"
 
 int main(int argc, char ** argv) {
 	bool quit = false;
@@ -11,12 +13,12 @@ int main(int argc, char ** argv) {
 	// Create the scene out of partitions. This is just an arbitrary complex scene.
 	// Later, we will read this data from the rectangular decomposition step.
 	std::vector<std::shared_ptr<Partition>> partitions;
-	partitions.push_back(std::make_shared<DCTPartition>(40, 0, 250, 250));
-	partitions.push_back(std::make_shared<DCTPartition>(290, 0, 160, 160));
-	partitions.push_back(std::make_shared<DCTPartition>(0, 90, 40, 60));
-	partitions.push_back(std::make_shared<DCTPartition>(100, 250, 100, 60));
-	partitions.push_back(std::make_shared<DCTPartition>(390, 160, 60, 150));
-	partitions.push_back(std::make_shared<DCTPartition>(220, 280, 170, 30));
+	partitions.push_back(std::make_shared<DCTPartition>(0, 0, 250, 250));
+	partitions.push_back(std::make_shared<DCTPartition>(250, 0, 160, 160));
+	partitions.push_back(std::make_shared<DCTPartition>(-40, 90, 40, 60));
+	partitions.push_back(std::make_shared<DCTPartition>(60, 250, 100, 60));
+	partitions.push_back(std::make_shared<DCTPartition>(350, 160, 60, 150));
+	partitions.push_back(std::make_shared<DCTPartition>(180, 280, 170, 30));
 
 	// Create the simulation out of our partitions
 	auto simulation = std::make_shared<Simulation>(partitions);
