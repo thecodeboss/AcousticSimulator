@@ -1,0 +1,104 @@
+Version 1.0
+This file format specifies impulse responses as a function of source and listener positions.
+
+
+
+--------------------------------------------------------------------------------
+Header
+--------------------------------------------------------------------------------
+Field            Size (bytes)    Type    Description
+--------------------------------------------------------------------------------
+header           4               str     Should always contain the text "aSim".
+version          4               int     File format version (1).
+hdrSize          4               int     Total size of the header.
+sizeX            4               int     The length of the scene in voxels.
+sizeY            4               int     The height of the scene in voxels.
+sizeZ            4               int     The depth of the scene in voxels.
+samplingRate     4               int     Number of samples per second.
+c                4               float   Speed of sound (voxels/sample).
+nSources         4               int     The number of source simulations
+                                         contained in this file.
+nListeners       4               int     The number of listeners per source
+                                         with simulation data.
+<Source Table>   -               sTable  A table containing file offsets for
+                                         every source that was simulated.
+<Listener Table> -               lTable  A table containing information about
+                                         all the listeners in the scene.
+<Data>           -               data    Data containing all impulse responses.
+                                         For each source, then for each listener
+                                         corresponding to that source, the data
+                                         is dumped. This should be a strict
+                                         ordering, however each chunk contains
+                                         enough metadata in case the ordering is
+                                         wrong.
+--------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------
+Source Table Chunk (sTable)
+--------------------------------------------------------------------------------
+Field      Size (bytes)  Type      Description
+--------------------------------------------------------------------------------
+size       4             int       Total size of this chunk in bytes.
+nEntries   4             int       The number of entries in the table.
+<Entries>  -             <sEntry>  An array of table entries.
+--------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------
+Source Table Entry (sEntry)
+size = 24 bytes
+---------------------------------------------------------------------------------
+Field             Size (bytes)  Type    Description
+---------------------------------------------------------------------------------
+id                4              int     ID of the sound source.
+xPos              4              int     The x coordinate of the sound source.
+yPos              4              int     The y coordinate of the sound source.
+zPos              4              int     The z coordinate of the sound source.
+sType             4              int     0: Gaussian
+nSamples          4              int     The number of samples the simulation ran
+                                         for this source.
+---------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------
+Listener Table Chunk (lTable)
+size = 4 + nListeners*16 bytes
+--------------------------------------------------------------------------------
+Field      Size (bytes)  Type      Description
+--------------------------------------------------------------------------------
+size       4             int       Total size of this chunk in bytes.
+nEntries   4             int       The number of entries in the table.
+<Entries>  nEntries*16   <lEntry>  An array of table entries.
+--------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------
+Listener Table Entry (lEntry)
+size = 16 bytes
+--------------------------------------------------------------------------------
+Field             Size (bytes)  Type    Description
+--------------------------------------------------------------------------------
+id                4             int     ID of the listener.
+xPos              4             int     The x coordinate of the listener.
+yPos              4             int     The y coordinate of the listener.
+zPos              4             int     The z coordinate of the listener.
+--------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------
+Data Chunk
+--------------------------------------------------------------------------------
+Field             Size (bytes)  Type    Description
+--------------------------------------------------------------------------------
+size              4             int     Size of this data chunk.
+sourceID          4             int     Source ID this chunk corresponds to.
+listenerID        4             int     Listener ID this chunk corresponds to.
+<Raw data>        size*4        floats  The impulse response as an array of
+                                        samples.
+--------------------------------------------------------------------------------
