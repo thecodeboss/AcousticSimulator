@@ -14,16 +14,16 @@ int main(int argc, char ** argv) {
 
 	// Create the scene out of partitions. This is just an arbitrary complex scene.
 	// Later, we will read this data from the rectangular decomposition step.
-	std::vector<std::shared_ptr<Partition>> partitions = Partition::readFromRecFile("assets/test_level2.rec");
+	std::vector<std::shared_ptr<Partition>> partitions = Partition::readFromRecFile("assets/test_level.rec");
 
 	// Sources
 	std::vector<std::shared_ptr<SoundSource>> sources;
-	sources.push_back(std::make_shared<GaussianSource>(75/2, -120/2, 0));
+	sources.push_back(std::make_shared<GaussianSource>(37, -60, 0));
 
 	// Create the simulation out of our partitions
 	auto simulation = std::make_shared<Simulation>(
 		partitions,
-		"test_level2.irs"
+		"test_level.irs"
 	);
 	
 	// Determine the size of the window based on the size of the simulation
@@ -92,9 +92,3 @@ int main(int argc, char ** argv) {
 
 	return 0;
 }
-//
-//int main(int argc, char ** argv) {
-//	IRSFile irsFile;
-//	irsFile.readIRSFile("22100Hz_new2.irs");
-//	return 0;
-//}

@@ -117,10 +117,10 @@ std::vector<std::shared_ptr<Partition>> Partition::readFromRecFile(std::string f
 		if (file.eof()) break;
 
 		partitions.push_back(std::make_shared<DCTPartition>(
-			xMin / 2,
-			yMin / 2,
-			width / 2,
-			height / 2));
+			xMin,
+			yMin,
+			width,
+			height));
 	}
 
 	return partitions;
