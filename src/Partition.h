@@ -1,5 +1,10 @@
 #pragma once
 #include <vector>
+#include <memory>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include "SoundSource.h"
 
 class Boundary;
 
@@ -16,6 +21,18 @@ protected:
 	// boolean for this.
 	bool includeSelfTerms{ true };
 
+	std::vector<std::shared_ptr<SoundSource>> sources;
+
+	std::thread worker;
+	std::condition_variable cv_wait;
+	std::mutex cv_m_wait;
+
+	std::condition_variable cv_finish;
+	std::mutex cv_m_finish;
+	volatile bool finish{ false };
+	volatile bool quit{ false };
+	volatile bool wait{ true };
+
 	// After all boundaries have been found, these should be filled in with
 	// the borders that are not touching anything. This allows for PML boundaries
 	// to be easily calculated.
@@ -26,6 +43,10 @@ protected:
 
 	Partition(int gx, int gy, int w, int h, int d = 1);
 	virtual ~Partition();
+
+	void main();
+
+	void computeSourceForcingTerms(double t);
 
 public:
 	// Parameters defining the position in global space, along with the
@@ -48,6 +69,11 @@ public:
 	virtual void setForce(int x, int y, double f) = 0;
 
 	void addBoundary(Boundary* boundary);
+	void addSource(std::shared_ptr<SoundSource>& source);
+	void startStep(double t);
+	void waitForStepFinish();
+
+	static std::vector<std::shared_ptr<Partition>> readFromRecFile(std::string filename);
 
 	friend class Boundary;
 	friend class Simulation;

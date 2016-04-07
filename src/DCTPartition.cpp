@@ -44,20 +44,16 @@ void DCTPartition::step(double t) {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			int idx = i*width + j;
-			new_modes[idx] =
+			new_modes[idx] = 0.999*(
 				2.0 * pressure.getMode(j, i) * cwt[idx]
 				- prev_modes[idx]
-				+ (2.0 * force.getMode(j, i) / ang2[idx]) * (1.0 - cwt[idx]);
+				+ (2.0 * force.getMode(j, i) / ang2[idx]) * (1.0 - cwt[idx]));
 		}
 	}
 	memcpy((void*)prev_modes, (void*)pressure.modes, width*height*sizeof(double));
 	memcpy((void*)pressure.modes, (void*)new_modes, width*height*sizeof(double));
 	// P = iDCT2(M)
 	pressure.executeIDCT();
-	// Update forcing term for sources
-	if (width == 160) {
-		force.setValue(80, 80, exp(-0.5*(t - 8.0)*(t - 8.0)) / sqrt(2 * M_PI));
-	}
 }
 
 double* DCTPartition::getPressureField() {

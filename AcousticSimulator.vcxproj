@@ -157,19 +157,25 @@
     <ClCompile Include="src\DCTPartition.cpp" />
     <ClCompile Include="src\DCTVolume.cpp" />
     <ClCompile Include="src\FDTDPartition.cpp" />
+    <ClCompile Include="src\GaussianSource.cpp" />
+    <ClCompile Include="src\IRSFile.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Partition.cpp" />
     <ClCompile Include="src\PMLPartition.cpp" />
     <ClCompile Include="src\Simulation.cpp" />
+    <ClCompile Include="src\SoundSource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Boundary.h" />
     <ClInclude Include="src\DCTPartition.h" />
     <ClInclude Include="src\DCTVolume.h" />
     <ClInclude Include="src\FDTDPartition.h" />
+    <ClInclude Include="src\GaussianSource.h" />
+    <ClInclude Include="src\IRSFile.h" />
     <ClInclude Include="src\Partition.h" />
     <ClInclude Include="src\PMLPartition.h" />
     <ClInclude Include="src\Simulation.h" />
+    <ClInclude Include="src\SoundSource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -25,6 +25,15 @@
     <ClCompile Include="src\FDTDPartition.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="src\IRSFile.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SoundSource.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GaussianSource.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Boundary.h">
@@ -46,6 +55,15 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="src\FDTDPartition.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IRSFile.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SoundSource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GaussianSource.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
